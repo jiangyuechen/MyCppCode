@@ -1,0 +1,50 @@
+//0-1背包问题
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+using namespace std;
+int m,n,w[201],c[201],f[201][201];
+int main()
+{
+	ios::sync_with_stdio(0);
+	cin>>m>>n;
+	for(int i=1;i<=n;i++)
+	{
+		cin>>w[i]>>c[i];
+	}
+	for(int i=1;i<=n;i++)
+	{
+		for(int v=m;v>0;v--)
+		{
+			if(w[i]<=v) f[i][v]=max(f[i-1][v],f[i-1][v-w[i]]+c[i]);
+			else f[i][v]=f[i-1][v];
+		}
+	}
+	cout<<f[n][m];
+	return 0;
+}
+//完全背包问题
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+using namespace std;
+int m,n,w[201],c[201],f[201][201];
+int main()
+{
+	ios::sync_with_stdio(0);
+	cin>>m>>n;
+	for(int i=1;i<=n;i++)
+	{
+		cin>>w[i]>>c[i];
+	}
+	for(int i=1;i<=n;i++)
+	{
+		for(int v=1;v<=m;v++)
+		{
+			if(v<w[i]) f[i][v]=f[i-1][v];
+			else f[i][v]=max(f[i-1][v],f[i][v-w[i]]+c[i]);
+		}
+	}
+	cout<<"max="<<f[n][m];
+	return 0;
+}
