@@ -63,7 +63,7 @@ public:
         return this->Name;
     }
 };
-class Reference : Object
+class Reference : public Object
 {
 protected:
     Object *Ref;
