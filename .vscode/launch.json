@@ -2,6 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
+            
             "name": "这次一定要AC!",
             "type": "cppdbg",
             "request": "launch",

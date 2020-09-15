@@ -7,7 +7,9 @@
     "editor.snippetSuggestions": "inline", 
     "editor.autoClosingBrackets": "beforeWhitespace",
     "editor.cursorBlinking": "smooth",
+    "editor.codeLens": true,
     "editor.multiCursorMergeOverlapping": true,
+    "editor.lightbulb.enabled": true,
     "editor.tabCompletion": "off",
     "editor.comments.insertSpace": true,
     "C_Cpp.clang_format_sortIncludes": true,
@@ -111,4 +113,58 @@
     },
     "path-intellisense.absolutePathToWorkspace": true,
     "git.ignoreLimitWarning": true,
+    "errorLens.addAnnotationTextPrefixes": true,
+    "errorLens.annotationPrefix": [
+        "🔺",
+        "🔶",
+        "🔵",
+        "💠"
+    ],
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ]
 }
