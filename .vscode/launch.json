@@ -2,8 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            
-            "name": "这次一定要AC!",
+            "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
