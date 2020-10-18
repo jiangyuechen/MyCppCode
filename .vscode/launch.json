@@ -5,14 +5,14 @@
             "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\Program Files (x86)\\gcc\\TDM-GCC-64\\bin\\gdb.exe",
+            "miDebuggerPath": "C:/Program Files (x86)/gcc/TDM-GCC-64/bin/gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -21,6 +21,27 @@
                 }
             ],
             "preLaunchTask": "task g++",
-        }
+        },
+        {
+            "name": "Python Launch",
+            "type":"python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "externalTerminal"
+        },
+        {
+            "name": "C# Launch",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "console": "externalTerminal",
+            "preLaunchTask": "C# Task"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "JS Launch",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}.js",
+        },
     ]
 }

@@ -3,16 +3,17 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "C:/Program Files (x86)/gcc/TDM-GCC-64/bin/gcc.exe"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "msvc-x64",
+            "intelliSenseMode": "gcc-x86",
             "cppStandard": "c++17",
-            "cStandard": "c18"
+            "cStandard": "c17",
+            "compilerPath": "C:/Program Files (x86)/gcc/TDM-GCC-64/bin/gcc.exe"
         }
     ],
     "version": 4
