@@ -6,6 +6,8 @@ ll n, ans;
 int T;
 int main()
 {
+    freopen("problem.in", "r", stdin);
+    freopen("problem.out", "w", stdout);
     scanf("%d", &T);
     while (T--)
     {
@@ -14,6 +16,7 @@ int main()
         cout << ans;
         puts("");
     }
-    system("pause");
+    fclose(stdin);
+    fclose(stdout);
     return 0;
 }

@@ -15,6 +15,7 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.minimap.renderCharacters": false,
     "editor.links": true,
+    "editor.suggest.statusBar.visible": true,
     "C_Cpp.clang_format_sortIncludes": true,
     "C_Cpp.intelliSenseEngine": "Default", 
     "C_Cpp.errorSquiggles": "Enabled", 
