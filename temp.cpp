@@ -2,18 +2,32 @@
 constexpr int MAXN = 1000001;
 int a[MAXN], n;
 
+class Origin
+{
+private:
+    char name[1001];
+
+public:
+    Origin(const char *_n);
+    ~Origin();
+};
+
+Origin::Origin(const char *_n)
+{
+    strcpy(name, _n);
+}
+
+Origin::~Origin()
+{
+    delete[] name;
+}
+
+unsigned short Hash(void *p)
+{
+    unsigned int val = reinterpret_cast<unsigned int>(p);
+    return (unsigned short)(val ^ (val >> 16));
+}
+
 int main(void)
 {
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-    {
-        scanf("%d", &a[i]);
-    }
-    std::sort(a + 1, a + n + 1, [](int a, int b) { return a > b; });
-    for (int i = 1; i <= n; i++)
-    {
-        printf("%d ", a[i]);
-    }
-    system("pause");
-    return 0;
 }

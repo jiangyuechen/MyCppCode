@@ -21,6 +21,8 @@
     "C_Cpp.errorSquiggles": "Enabled", 
     "C_Cpp.autocomplete": "Default", 
     "errorLens.delay":1,
+    "vscode-mysql.enableTelemetry": true,
+    "vscode-mysql.maxTableCount": 500,
     "vsintellicode.python.completionsEnabled":false,
     "vsintellicode.typescript.completionsEnabled": false,
     "terminal.integrated.cursorBlinking": true,
