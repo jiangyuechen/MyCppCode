@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <future>
+using namespace std;
 constexpr int MAXN = 1000001;
 int a[MAXN], n;
 
@@ -22,12 +24,7 @@ Origin::~Origin()
     delete[] name;
 }
 
-unsigned short Hash(void *p)
-{
-    unsigned int val = reinterpret_cast<unsigned int>(p);
-    return (unsigned short)(val ^ (val >> 16));
-}
-
 int main(void)
 {
+    const double pi = acos(-1);
 }

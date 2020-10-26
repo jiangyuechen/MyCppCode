@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
     database : 'temp'
 });
 connection.connect();
-var sql = 'SELECT * FROM temp.arknights_opt WHERE code_name_en=\"Amiya\";';
+var sql = 'SELECT * FROM temp.arknights_opt';
 connection.query(sql, function (err, result) {
     if (err) {
         console.log("select error:", err.message);
