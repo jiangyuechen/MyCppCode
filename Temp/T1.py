@@ -1,7 +1,5 @@
-money = 50000
-rate = 0.0325
-for i in range(5):
-    money = money * (1 + rate)
-    
-print("5年后的存款：", money, "yuan")
-input("请按任意键继续......")
+n = int(input())
+a = [0]
+for i in range(1, n + 1):
+    a.append(a[i - 1] * 2 + 2)
+print(a[n])

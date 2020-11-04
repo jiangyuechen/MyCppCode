@@ -79,9 +79,6 @@ public:
     }
     Reference(std::string _Name, Object *_Ref, STD_ENUM::Reference_Type _T)
     {
-        Name = _Name;
-        Ref = _Ref;
-        T = _T;
     }
     ~Reference()
     {

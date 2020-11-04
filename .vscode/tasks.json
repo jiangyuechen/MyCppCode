@@ -7,15 +7,17 @@
             "command": "g++",
             "args": [
                 "-g",
-                "-W",
+                "-Wall",
+                "-Wextra",
+                "-Wconversion",
                 "-O2",
-                "-std=c++11",
+                "-std=c++17",
                 "\"${file}\"",
                 "-o",
-                "\"${fileDirname}\\${fileBasenameNoExtension}.exe\""
+                "\"${fileDirname}/${fileBasenameNoExtension}.exe\""
             ],
             "options": {
-                "cwd": "C:\\Program Files (x86)\\gcc\\TDM-GCC-64\\bin"
+                "cwd": "C:/Program Files (x86)/gcc/bin"
             },
             "problemMatcher": [
                 "$gcc"
@@ -28,7 +30,8 @@
         {
             "command":"C:/Windows/Microsoft.NET/Framework/v4.0.30319/csc.exe",
             "args": [
-                "${fileDirname}\\${fileBasenameNoExtension}.cs"
+                "/out:${fileDirname}/${fileBasenameNoExtension}.exe",
+                "${fileDirname}/${fileBasenameNoExtension}.cs",
             ],
             "label":"C# Task"
         }

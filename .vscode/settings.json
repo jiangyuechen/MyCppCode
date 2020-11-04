@@ -1,6 +1,6 @@
 {
     "files.defaultLanguage": "cpp", 
-    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.defaultFormatter": "ms-vscode.cpptools" ,
     "editor.formatOnType": true, 
     "editor.formatOnSave": true,
     "editor.snippetSuggestions": "inline", 
@@ -177,5 +177,8 @@
             "bold": false,
             "italic": false
         }
-    ]
+    ],
+    "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
