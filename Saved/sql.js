@@ -13,5 +13,6 @@ connection.query(sql, function (err, result) {
         return;
     }
     console.log(result);
-})
+});
+
 // connection.end();

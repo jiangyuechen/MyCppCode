@@ -26,7 +26,7 @@
             "name": "Python Launch",
             "type":"python",
             "request": "launch",
-            "program": "${file}",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
             "console": "externalTerminal"
         },
         {
