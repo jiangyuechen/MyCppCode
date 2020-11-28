@@ -117,7 +117,12 @@ public:
         system("pause");
     }
 };
-
+class Death
+{
+public:
+    int statusCode;
+    std::string message;
+};
 int main()
 {
     /*
@@ -133,7 +138,6 @@ int main()
     return EXIT_SUCCESS;
     */
     _MAKE_OBJECT_WITH_NAME(Conviction);
-    printf("%s\n", Conviction->getName().c_str());
     system("pause");
     return 0;
 }
