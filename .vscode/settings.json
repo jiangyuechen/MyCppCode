@@ -114,7 +114,16 @@
         "unordered_set": "cpp",
         "valarray": "cpp",
         "xlocbuf": "cpp",
-        "xlocmes": "cpp"
+        "xlocmes": "cpp",
+        "cassert": "cpp",
+        "ccomplex": "cpp",
+        "cerrno": "cpp",
+        "cfloat": "cpp",
+        "ciso646": "cpp",
+        "climits": "cpp",
+        "cstdalign": "cpp",
+        "cstdbool": "cpp",
+        "ctgmath": "cpp"
     },
     "terminal.integrated.rendererType": "dom",
     "path-intellisense.autoSlashAfterDirectory": false,
@@ -180,5 +189,6 @@
     ],
     "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "eslint.options": { "configFile": "C:/Users/J_Ignite/Documents/Codes/.eslintrc.json" }
 }

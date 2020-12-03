@@ -1,56 +1,100 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#define END_PROGRAM  \
-    system("pause"); \
-    return 0;
+#include <bits/stdc++.h>
 using namespace std;
-typedef pair<double, double> point;
-const int MAXN = 1001;
+const double eps = 1e-6;
+const int MAXN = 20;
 
-pair<double, double> get_function(point &a, point &b)
-{ //返回经过(0,0),(xa,ya),(xb,yb)的抛物线y=ax^2+bx的a和b。
-    double x1 = a.first, x2 = a.second, y1 = b.first, y2 = b.second;
-    pair<double, double> ans;
-    ans.first = (x2 * y1 - x1 * y2) / (x1 * x2 * (x1 - x2));
-    ans.second = (x1 * x1 * y2 - x2 * x2 * y1) / (x1 * x2 * (x1 - x2));
-    return ans;
-}
-inline bool equal(double x, double y)
+inline bool equal(double a, double b) { return fabs(a - b) < eps; }
+inline double pow2(double a) { return a * a; }
+
+class Point
 {
-    return abs(x - y) < 1e-8;
-}
-bool in_same_line(point &m, point &analyse)
+public:
+    double x, y;
+    Point() : x(0), y(0) {}
+    Point(double _x, double _y) : x(_x), y(_y) {}
+};
+
+class Function
 {
-    double a = analyse.first, b = analyse.second;
-    double x = m.first, y = m.second;
-    return equal(a * x * x + b * x, y);
-}
-point a[MAXN];
-int n;
-int ans;
-void dfs(int x, int foot)
-{
-    if (x == (1 << n) - 1)
+    // ax^2 + bx
+public:
+    double a, b;
+    Function() : a(0), b(0) {}
+    Function(double _a, double _b) : a(_a), b(_b) {}
+    Function(Point s, Point t)
     {
-        foot = min(foot, ans);
-        return;
+        double D = pow2(s.x) * t.x - s.x * pow2(t.x);
+        double Da = s.y * t.x - s.x * t.y;
+        double Db = pow2(s.x) * t.y - pow2(t.x) * s.y;
+        a = Da / D;
+        b = Db / D;
     }
-    for (int i = 0; i < n; i++)
+    bool online(Point p)
     {
-        if ((1 << i) & x)
-        {
-            for (int j = 0; j < n; j++)
-            {
-            }
-        }
+        return equal(a * pow2(p.x) + b * p.x, p.y);
     }
-}
+};
+
+int T, n, m;
+Point a[MAXN];
+int dp[1 << MAXN];
+int hit[MAXN][MAXN];
+int first_zero[1 << MAXN];
 
 int main()
 {
+    for (int i = 0; i < (1 << 19); i++)
+    {
+        int j = 1;
+        while (j <= 19 && i & (1 << (j - 1)))
+            j++;
+        first_zero[i] = j;
+    }
+    scanf("%d", &T);
 
-    END_PROGRAM
+    while (T--)
+    {
+        scanf("%d%d", &n, &m);
+        memset(dp, 0x7f, sizeof(dp));
+        memset(hit, 0, sizeof(hit));
+        for (int i = 1; i <= n; i++)
+        {
+            double x, y;
+            scanf("%lf%lf", &x, &y);
+            a[i].x = x, a[i].y = y;
+        }
+        dp[0] = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            for (int j = 1; j <= n; j++)
+            {
+                if (equal(a[i].x, a[j].x))
+                    continue;
+                Function func(a[i], a[j]);
+                if (func.a >= -eps)
+                    continue;
+                for (int k = 1; k <= n; k++)
+                {
+                    if (func.online(a[k]))
+                    {
+                        hit[i][j] |= (1 << (k - 1));
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < (1 << n); i++)
+        {
+            int j = first_zero[i];
+            dp[i | (1 << (j - 1))] = min(dp[i | (1 << (j - 1))], dp[i] + 1);
+            for (int k = 1; k <= n; k++)
+            {
+                dp[i | hit[j][k]] = min(dp[i | hit[j][k]], dp[i] + 1);
+            }
+        }
+        printf("%d\n", dp[(1 << n) - 1]);
+    }
+#ifndef ONLINE_JUDGE
+    system("pause");
+#endif
+    return 0;
 }

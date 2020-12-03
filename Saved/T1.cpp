@@ -1,28 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef unsigned long long ull;
-ull n;
-ull ans;
-
+char ret[16] = {'F', 'E', 'D', 'C', 'B', 'A', '9', '8', '7', '6', '5', '4', '3', '2', '1', '0'};
+char _parse(char ch)
+{
+    if (ch >= '0' && ch <= '9')
+        return ret[ch - '0'];
+    else if (ch >= 'A' && ch <= 'F')
+        return ret[ch - 'A' + 10];
+}
+string str;
 int main()
 {
-
-    scanf("%llu", &n);
-    for (register ull i = 1ull; i <= n; i++)
+    cin >> str;
+    cout << '#';
+    for (int i = 1; i <= 6; i++)
     {
-        for (register ull j = 1ull; j <= n; j++)
-        {
-            if (i * j < n)
-                ans += i * j;
-            else
-            {
-                ans += (n - j + 1ull) * n;
-                break;
-            }
-        }
+        cout << _parse(str[i]);
     }
-    printf("%llu\n", ans);
-
 #ifndef ONLINE_JUDGE
     system("pause");
 #endif

@@ -43,8 +43,10 @@ class __Extend_show extends Show{
     constructor(_x: number, _y: number) { super(_x, _y); }
 }
 
-function swap(_x: number &, _y: number &) {
-    
+function swap(_x: number, _y: number) {
+    const temp = _x;
+    _x = _y;
+    _y = temp;
 }
 
 var sh = new Show(1, 2);
@@ -52,3 +54,4 @@ sh.setDefault();
 sh.set(2, 3);
 
 var Uvuvwevwevwe_Onyetenyevwe_Ugwemuhwem_Osas = new __Extend_show(1, 2);
+Uvuvwevwevwe_Onyetenyevwe_Ugwemuhwem_Osas = void;

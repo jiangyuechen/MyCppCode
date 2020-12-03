@@ -1,15 +1,10 @@
-#define ARKNIGHTS
-#define _ARKNIGHTS
-#define __ARKNIGHTS
-#define __cxx11_arknights 0x0f
-#define __std_lib_arknights
-
-#if __cxx11_arknights >= 0x0f
-extern "C"
+#include <bits/stdc++.h>
+#include <regex>
+using namespace std;
+int main()
 {
-#endif
-#if __cxx11_arknights >= 0x0f
+    int p, r;
+    scanf("%d O(n^%d)", &p, &r);
+    cout << p << r;
+    system("pause");
 }
-#endif
-
-#undef __ARKNIGHTS
