@@ -1,35 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef unsigned long long ull;
-ull a, p;
-ull qPow(ull A, ull B)
+inline int read()
 {
-    ull ans = 1ull, base = A % p;
-    while (B)
+    int s = 0, w = 1;
+    char ch = getchar();
+    while (ch < '0' || ch > '9')
     {
-        if (B & 1ull)
-        {
-            ans = ans * base;
-            ans %= p;
-        }
-        base = (base * base) % p;
-        B >>= 1ull;
+        if (ch == '-')
+            w = -1;
+        ch = getchar();
     }
-    return ans % p;
+    while (ch >= '0' && ch <= '9')
+        s = s * 10 + ch - '0', ch = getchar();
+    return s * w;
 }
+string str;
+int n, m;
+
 int main()
 {
-    scanf("%llu%llu", &a, &p);
-    for (register ull b = 0ull; b <= (2000000000000000000ull); b++)
-    {
-        ull A_B = qPow(a, b), B_A = qPow(b, a);
-        if (A_B == B_A)
-        {
-            printf("%llu", b);
-            break;
-        }
-    }
-
+    std::mt19937 random(111111);
+    cout << random() << endl;
+    n = read();
+    m = read();
+    cin >> str;
 #ifndef ONLINE_JUDGE
     system("pause");
 #endif

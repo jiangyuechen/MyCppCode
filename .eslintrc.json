@@ -35,5 +35,9 @@
         "unicodeCodePointEscapes": true
     },
     "root": true,
-    "noInlineConfig": true
+    "noInlineConfig": true,
+    "rules": {
+        "no-useless-call": "warn",
+        "no-useless-computed-key": "warn"
+    }
 }

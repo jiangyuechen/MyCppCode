@@ -125,7 +125,8 @@
         "cstdbool": "cpp",
         "ctgmath": "cpp"
     },
-    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.rendererType": "auto",
+    "terminal.explorerKind": "integrated",
     "path-intellisense.autoSlashAfterDirectory": false,
     "path-intellisense.extensionOnImport": true,
     "path-intellisense.mappings": {

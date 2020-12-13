@@ -26,16 +26,8 @@
             "name": "Python Launch",
             "type":"python",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.py",
             "console": "externalTerminal"
-        },
-        {
-            "name": "C# Launch",
-            "type": "coreclr",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
-            "console": "externalTerminal",
-            "preLaunchTask": "C# Task"
         },
         {
             "type": "node",

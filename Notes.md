@@ -261,3 +261,7 @@ namespace Kruskal
     }
 }
 ```
+
+$$
+\Delta f_{\max} = \frac{\ln t}{eV} \tag{1}
+$$
