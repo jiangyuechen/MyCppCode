@@ -1,10 +1,29 @@
-let x: string = "123";
+function Max(...data: number[]) {
+    var ret: number = -2147483648;
+    for (let i = 0; i < data.length; i++) {
+        const element = data[i];
+        ret = ret < element ? element : ret;
+    }
+    return ret;
+}
 
-function exp(callback: (a: any, b: any) => boolean, ...options: any[]) {
-    return {
-        "name": "ok",
-        "isok": callback(1, 2)
+function Command(...options: any[]) {
+    options.forEach(elem => {
+        console.assert(elem);
+    });
+}
+
+function cucOvOcyc(param?: any) {
+    if (param === void 0) {
+        
     }
 }
-let s = exp((a: any, b: any) => { return a < b; });
-console.log(s.isok);
+
+
+class A {
+
+    new(): void {
+        
+    }
+    
+}

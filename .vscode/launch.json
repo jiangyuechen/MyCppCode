@@ -24,7 +24,7 @@
         },
         {
             "name": "Python Launch",
-            "type":"python",
+            "type": "python",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.py",
             "console": "externalTerminal"

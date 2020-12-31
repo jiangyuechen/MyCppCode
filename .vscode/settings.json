@@ -15,7 +15,6 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.minimap.renderCharacters": false,
     "editor.links": true,
-    "editor.suggest.statusBar.visible": true,
     "C_Cpp.clang_format_sortIncludes": true,
     "C_Cpp.intelliSenseEngine": "Default",
     "C_Cpp.errorSquiggles": "Enabled",
@@ -123,7 +122,8 @@
         "climits": "cpp",
         "cstdalign": "cpp",
         "cstdbool": "cpp",
-        "ctgmath": "cpp"
+        "ctgmath": "cpp",
+        "rope": "cpp"
     },
     "terminal.integrated.rendererType": "auto",
     "terminal.explorerKind": "integrated",
@@ -141,55 +141,11 @@
         "🔵",
         "💠"
     ],
-    "better-comments.tags": [
-        {
-            "tag": "!",
-            "color": "#FF2D00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "?",
-            "color": "#3498DB",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "//",
-            "color": "#474747",
-            "strikethrough": true,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "todo",
-            "color": "#FF8C00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "*",
-            "color": "#98C379",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        }
-    ],
     "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "eslint.options": { "configFile": "C:/Users/J_Ignite/Documents/Codes/.eslintrc.json" }
+    "eslint.options": {
+        "configFile": "C:/Users/J_Ignite/Documents/Codes/.eslintrc.json"
+    },
+    "screencastMode.verticalOffset": 21
 }
