@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long ll;
 const ll MAXN = 200005, MAXM = 200005;
-ll n, m, r, p;
+ll n, m, r;
 inline ll read()
 {
     ll s = 0, w = 1;
@@ -192,7 +192,6 @@ namespace CutTree
     */
     void UpdLne(ll _x, ll _y, ll k)
     {
-        k %= p;
         Node *x = toNode[_x], *y = toNode[_y];
         //printf("UpdLne:[%d](%d)~[%d](%d)\n", x->realId, x->cutId, y->realId, y->cutId);
         while (x->lnkTp->realId != y->lnkTp->realId)
@@ -231,25 +230,21 @@ namespace CutTree
             if (x->lnkTp->dep >= y->lnkTp->dep)
             {
                 ans += SgnTr.Qry(SgnTr.rot, x->lnkTp->cutId, x->cutId);
-                ans %= p;
                 x = x->lnkTp->fa;
             }
             else
             {
                 ans += SgnTr.Qry(SgnTr.rot, y->lnkTp->cutId, y->cutId);
-                ans %= p;
                 y = y->lnkTp->fa;
             }
         }
         if (x->dep <= y->dep)
         {
             ans += SgnTr.Qry(SgnTr.rot, x->cutId, y->cutId);
-            ans %= p;
         }
         else
         {
             ans += SgnTr.Qry(SgnTr.rot, y->cutId, x->cutId);
-            ans %= p;
         }
         return ans;
     }
@@ -261,7 +256,7 @@ namespace CutTree
     ll QrySon(ll _x)
     {
         Node *x = toNode[_x];
-        return SgnTr.Qry(SgnTr.rot, x->cutId, x->cutId + x->siz - 1 /*子树的链的右端点*/) % p;
+        return SgnTr.Qry(SgnTr.rot, x->cutId, x->cutId + x->siz - 1 /*子树的链的右端点*/);
     }
     /**
      * 修改以某一个结点为根的子树的点权。
@@ -277,7 +272,7 @@ namespace CutTree
 }; // namespace CutTree
 int main()
 {
-    n = read(), m = read(), r = read(), p = read();
+    n = read(), m = read(), r = 1;
     for (ll i = 1; i <= n; i++)
         orgnV[i] = read();
     for (ll i = 1, a, b; i < n; i++)
@@ -293,23 +288,18 @@ int main()
         op = read();
         if (op == 1)
         {
-            x = read(), y = read(), z = read();
-            CutTree::UpdLne(x, y, z);
+            x = read(), y = read();
+            CutTree::UpdLne(x, x, y);
         }
         else if (op == 2)
         {
             x = read(), y = read();
-            printf("%d\n", CutTree::QryLne(x, y));
+            CutTree::UpdSon(x, y);
         }
         else if (op == 3)
         {
-            x = read(), z = read();
-            CutTree::UpdSon(x, z);
-        }
-        else if (op == 4)
-        {
             x = read();
-            printf("%d\n", CutTree::QrySon(x));
+            printf("%lld\n", CutTree::QryLne(1, x));
         }
     }
 #ifndef ONLINE_JUDGE

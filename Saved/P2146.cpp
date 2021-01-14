@@ -1,11 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-const ll MAXN = 200005, MAXM = 200005;
-ll n, m, r, p;
-inline ll read()
+const int MAXN = 200005, MAXM = 200005;
+int n, q;
+inline int read()
 {
-    ll s = 0, w = 1;
+    int s = 0, w = 1;
     char ch = getchar();
     while (ch < '0' || ch > '9')
     {
@@ -20,29 +19,28 @@ inline ll read()
 struct Edge
 {
     Edge *nxt;
-    ll to;
+    int to;
 } * head[MAXM];
 
-void add_edge(ll a, ll b)
+void add_edge(int a, int b)
 {
     Edge *e = new Edge{head[a], b};
     head[a] = e;
 }
-ll orgnV[MAXN], a[MAXN];
 class SgnTree
 {
 private:
     struct Node
     {
         Node *ls, *rs;
-        ll l, r;
-        ll v, tag;
-        Node() : ls(nullptr), rs(nullptr), l(0), r(0), v(0), tag(0) {}
+        int l, r;
+        int v, tag;
+        Node() : ls(nullptr), rs(nullptr), l(0), r(0), v(0), tag(-1) {}
     };
-    void MkTag(Node *x, ll t)
+    void MkTag(Node *x, int t)
     {
-        x->tag += t;
-        x->v += (x->r - x->l + 1) * t;
+        x->tag = t;
+        x->v = (x->r - x->l + 1) * t;
     }
     void PsUp(Node *x)
     {
@@ -50,39 +48,41 @@ private:
     }
     void PsDw(Node *x)
     {
-        if (x->tag == 0)
+        if (x->tag == -1)
             return;
         MkTag(x->ls, x->tag);
         MkTag(x->rs, x->tag);
-        x->tag = 0;
+        x->tag = -1;
     }
-    bool InRng(Node *x, ll L, ll R) { return L <= x->l && x->r <= R; }
-    bool OutRng(Node *x, ll L, ll R) { return x->r < L || R < x->l; }
+    bool InRng(Node *x, int L, int R) { return L <= x->l && x->r <= R; }
+    bool OutRng(Node *x, int L, int R) { return x->r < L || R < x->l; }
 
 public:
     Node *rot;
     SgnTree() { rot = new Node(); }
 
-    void Build(Node *x, ll L, ll R)
+    void Build(Node *x, int L, int R)
     {
         x->l = L;
         x->r = R;
-        x->tag = x->v = 0;
+        x->v = 0;
+        x->tag = -1;
         if (L == R)
         {
             x->ls = x->rs = nullptr;
-            x->v = a[L];
             return;
         }
-        ll M = (L + R) >> 1;
+        int M = (L + R) >> 1;
         Build(x->ls = new Node(), L, M);
         Build(x->rs = new Node(), M + 1, R);
         PsUp(x);
     }
-    void Upd(Node *x, ll L, ll R, ll K)
+    void Upd(Node *x, int L, int R, int K)
     {
         if (InRng(x, L, R))
+        {
             MkTag(x, K);
+        }
         else if (!OutRng(x, L, R))
         {
             PsDw(x);
@@ -91,7 +91,7 @@ public:
             PsUp(x);
         }
     }
-    ll Qry(Node *x, ll L, ll R)
+    int Qry(Node *x, int L, int R)
     {
         if (InRng(x, L, R))
             return x->v;
@@ -110,11 +110,11 @@ namespace CutTree
     struct Node
     {
         Node *fa /*父亲结点*/, *hvySon /*重儿子*/, *lnkTp /*链顶端结点*/;
-        ll dep /*深度*/, realId /*对应的图中编号*/, siz /*子树大小*/, cutId /*结点剖分后的新编号*/;
+        int dep /*深度*/, realId /*对应的图中编号*/, siz /*子树大小*/, cutId /*结点剖分后的新编号*/;
         Node() : fa(nullptr), hvySon(nullptr), lnkTp(nullptr), dep(0), realId(0), siz(0), cutId(0) {}
     } * rot;
     static Node *toNode[MAXN]; //toNode[i] : 图中编号 i 对应的结点。
-    ll cutCnt;                 //产生连续的dfs序列
+    int cutCnt;                //产生连续的dfs序列
     SgnTree SgnTr;             //用来维护的线段树
     /**
      * 第一次搜索。
@@ -125,7 +125,7 @@ namespace CutTree
      * @param dep 当前深度。
      * @param realId 当前结点对应的真实编号。
     */
-    void Dfs_1(Node *x, Node *fa, ll dep, ll realId)
+    void Dfs_1(Node *x, Node *fa, int dep, int realId)
     {
         x->fa = fa;
         x->dep = dep;
@@ -134,7 +134,7 @@ namespace CutTree
         toNode[x->realId] = x;
         for (Edge *e = head[realId]; e != nullptr; e = e->nxt)
         {
-            ll v = e->to;
+            int v = e->to;
             if (fa != nullptr && fa->realId == v)
             {
                 continue;
@@ -156,12 +156,11 @@ namespace CutTree
     {
         x->lnkTp = tp;
         x->cutId = ++cutCnt;
-        a[cutCnt] = orgnV[x->realId];
         if (x->hvySon == nullptr)
             return;
         Dfs_2(x->hvySon, tp);
 
-        ll realId = x->realId;
+        int realId = x->realId;
         for (Edge *e = head[realId]; e != nullptr; e = e->nxt)
         {
             Node *v = toNode[e->to];
@@ -177,7 +176,7 @@ namespace CutTree
     void Build()
     {
         rot = new Node();
-        Dfs_1(rot, nullptr, 1, r);
+        Dfs_1(rot, nullptr, 1, 1);
         //debug_1(rot);
         Dfs_2(rot, rot);
         //debug_2(rot);
@@ -190,11 +189,9 @@ namespace CutTree
      * @param k 给链上的每一个点加上的值。
      * 要把 _x, _y 转换成它们对应的结点，即使用数组 @e toNode[_x],toNode[_y] 。
     */
-    void UpdLne(ll _x, ll _y, ll k)
+    void _UpdLne(int _x, int _y, int k)
     {
-        k %= p;
         Node *x = toNode[_x], *y = toNode[_y];
-        //printf("UpdLne:[%d](%d)~[%d](%d)\n", x->realId, x->cutId, y->realId, y->cutId);
         while (x->lnkTp->realId != y->lnkTp->realId)
         {
             if (x->lnkTp->dep >= y->lnkTp->dep)
@@ -212,7 +209,6 @@ namespace CutTree
             SgnTr.Upd(SgnTr.rot, x->cutId, y->cutId, k);
         else
             SgnTr.Upd(SgnTr.rot, y->cutId, x->cutId, k);
-        //SgnTr.Debug(SgnTr.rot);
     }
     /**
      * 查询一条链上的点权和。
@@ -220,96 +216,75 @@ namespace CutTree
      * @param _y 链的尾结点编号。
      * @return 这条链的点权和。
     */
-    ll QryLne(ll _x, ll _y)
+    int _QryLne(int _x, int _y)
     {
-        ll ans = 0;
+        int ans = 0;
         Node *x = toNode[_x], *y = toNode[_y];
-        //printf("UpdLne:[%d](%d)~[%d](%d)\n", x->realId, x->cutId, y->realId, y->cutId);
         while (x->lnkTp->realId != y->lnkTp->realId)
         {
             // 一个重链一个重链地跳
             if (x->lnkTp->dep >= y->lnkTp->dep)
             {
                 ans += SgnTr.Qry(SgnTr.rot, x->lnkTp->cutId, x->cutId);
-                ans %= p;
                 x = x->lnkTp->fa;
             }
             else
             {
                 ans += SgnTr.Qry(SgnTr.rot, y->lnkTp->cutId, y->cutId);
-                ans %= p;
                 y = y->lnkTp->fa;
             }
         }
         if (x->dep <= y->dep)
-        {
             ans += SgnTr.Qry(SgnTr.rot, x->cutId, y->cutId);
-            ans %= p;
-        }
         else
-        {
             ans += SgnTr.Qry(SgnTr.rot, y->cutId, x->cutId);
-            ans %= p;
-        }
         return ans;
     }
-    /**
-     * 获取以某一个结点为根的子树的点权和。
-     * @param _x 指定的子树的根。
-     * @return 点权和。
-    */
-    ll QrySon(ll _x)
+    int Qry_Inst(int _x)
     {
-        Node *x = toNode[_x];
-        return SgnTr.Qry(SgnTr.rot, x->cutId, x->cutId + x->siz - 1 /*子树的链的右端点*/) % p;
+        return toNode[_x]->dep - _QryLne(1, _x);
     }
-    /**
-     * 修改以某一个结点为根的子树的点权。
-     * @param _x 指定的子树的根。
-     * @param k 子树上的每一个点加上的值。
-    */
-    void UpdSon(ll _x, ll k)
+    int Qry_Uninst(int _x)
     {
         Node *x = toNode[_x];
-        SgnTr.Upd(SgnTr.rot, x->cutId, x->cutId + x->siz - 1, k);
-        //SgnTr.Debug(SgnTr.rot);
+        return SgnTr.Qry(SgnTr.rot, x->cutId, x->cutId + x->siz - 1);
+    }
+    void Upd_Inst(int _x)
+    {
+        _UpdLne(1, _x, 1);
+    }
+    void Upd_Uninst(int _x)
+    {
+        Node *x = toNode[_x];
+        SgnTr.Upd(SgnTr.rot, x->cutId, x->cutId + x->siz - 1, 0);
     }
 }; // namespace CutTree
 int main()
 {
-    n = read(), m = read(), r = read(), p = read();
-    for (ll i = 1; i <= n; i++)
-        orgnV[i] = read();
-    for (ll i = 1, a, b; i < n; i++)
+    n = read();
+    for (int i = 1; i < n; i++)
     {
-        a = read(), b = read();
-        add_edge(a, b);
-        add_edge(b, a);
+        int x = read() + 1;
+        add_edge(i + 1, x);
+        add_edge(x, i + 1);
     }
     CutTree::Build();
-    while (m--)
+    q = read();
+    while (q--)
     {
-        ll op, x, y, z;
-        op = read();
-        if (op == 1)
+        char str[20];
+        int s;
+        scanf("%s", str);
+        s = read() + 1;
+        if (str[0] == 'i')
         {
-            x = read(), y = read(), z = read();
-            CutTree::UpdLne(x, y, z);
+            printf("%d\n", CutTree::Qry_Inst(s));
+            CutTree::Upd_Inst(s);
         }
-        else if (op == 2)
+        else
         {
-            x = read(), y = read();
-            printf("%d\n", CutTree::QryLne(x, y));
-        }
-        else if (op == 3)
-        {
-            x = read(), z = read();
-            CutTree::UpdSon(x, z);
-        }
-        else if (op == 4)
-        {
-            x = read();
-            printf("%d\n", CutTree::QrySon(x));
+            printf("%d\n", CutTree::Qry_Uninst(s));
+            CutTree::Upd_Uninst(s);
         }
     }
 #ifndef ONLINE_JUDGE
