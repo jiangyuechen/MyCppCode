@@ -178,9 +178,7 @@ namespace CutTree
     {
         rot = new Node();
         Dfs_1(rot, nullptr, 1, r);
-        //debug_1(rot);
         Dfs_2(rot, rot);
-        //debug_2(rot);
         SgnTr.Build(SgnTr.rot, 1, n);
     }
     /**
@@ -194,7 +192,6 @@ namespace CutTree
     {
         k %= p;
         Node *x = toNode[_x], *y = toNode[_y];
-        //printf("UpdLne:[%d](%d)~[%d](%d)\n", x->realId, x->cutId, y->realId, y->cutId);
         while (x->lnkTp->realId != y->lnkTp->realId)
         {
             if (x->lnkTp->dep >= y->lnkTp->dep)
@@ -212,7 +209,6 @@ namespace CutTree
             SgnTr.Upd(SgnTr.rot, x->cutId, y->cutId, k);
         else
             SgnTr.Upd(SgnTr.rot, y->cutId, x->cutId, k);
-        //SgnTr.Debug(SgnTr.rot);
     }
     /**
      * 查询一条链上的点权和。
@@ -224,7 +220,6 @@ namespace CutTree
     {
         ll ans = 0;
         Node *x = toNode[_x], *y = toNode[_y];
-        //printf("UpdLne:[%d](%d)~[%d](%d)\n", x->realId, x->cutId, y->realId, y->cutId);
         while (x->lnkTp->realId != y->lnkTp->realId)
         {
             // 一个重链一个重链地跳

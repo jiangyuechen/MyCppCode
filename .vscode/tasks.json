@@ -12,7 +12,8 @@
                 "\"${fileDirname}\\${fileBasenameNoExtension}.exe\"",
                 "-O2",
                 "-std=c++11",
-                // "-Wl,--stack=512000000",
+                "-Wl,--stack=512000000",
+                // "-fexec-charset=GBK",
             ],
             "options": {
                 "cwd": "C:/Program Files (x86)/gcc/bin"

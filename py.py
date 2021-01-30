@@ -1,3 +1,4 @@
+'''
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -11,3 +12,4 @@ fig = plt.figure()
 ax = Axes3D(fig)
 ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.viridis)
 plt.show()
+'''
