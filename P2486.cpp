@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long ll;
 const ll MAXN = 200005, MAXM = 200005;
-ll n, m, r;
+ll n, m, r, templc, temprc;
 inline ll read()
 {
     ll s = 0, w = 1;
@@ -37,23 +37,31 @@ private:
         Node *ls, *rs;
         ll l, r;
         ll v, tag;
-        Node() : ls(nullptr), rs(nullptr), l(0), r(0), v(0), tag(0) {}
+        ll rcolor, lcolor;
+        Node() : ls(nullptr), rs(nullptr), l(0), r(0), v(0), tag(0), rcolor(0), lcolor(0) {}
     };
     void MkTag(Node *x, ll t)
     {
-        x->tag += t;
-        x->v += (x->r - x->l + 1) * t;
+        x->v = 1;
+        x->lcolor = x->rcolor = t;
+        x->tag = t;
     }
     void PsUp(Node *x)
     {
         x->v = x->ls->v + x->rs->v;
+        if (x->ls->rcolor == x->rs->lcolor)
+            x->v--;
+        x->lcolor = x->ls->lcolor;
+        x->rcolor = x->rs->rcolor;
     }
     void PsDw(Node *x)
     {
         if (x->tag == 0)
             return;
-        MkTag(x->ls, x->tag);
-        MkTag(x->rs, x->tag);
+        if (x->ls)
+            MkTag(x->ls, x->tag);
+        if (x->rs)
+            MkTag(x->rs, x->tag);
         x->tag = 0;
     }
     bool InRng(Node *x, ll L, ll R) { return L <= x->l && x->r <= R; }
@@ -67,11 +75,12 @@ public:
     {
         x->l = L;
         x->r = R;
-        x->tag = x->v = 0;
+        x->tag = 0;
         if (L == R)
         {
             x->ls = x->rs = nullptr;
-            x->v = a[L];
+            x->v = 1;
+            x->rcolor = x->lcolor = a[L];
             return;
         }
         ll M = (L + R) >> 1;
@@ -82,26 +91,38 @@ public:
     void Upd(Node *x, ll L, ll R, ll K)
     {
         if (InRng(x, L, R))
-            MkTag(x, K);
-        else if (!OutRng(x, L, R))
         {
-            PsDw(x);
-            Upd(x->ls, L, R, K);
-            Upd(x->rs, L, R, K);
-            PsUp(x);
+            MkTag(x, K);
+            return;
         }
+        PsDw(x);
+        int M = (x->l + x->r) >> 1;
+        if (L <= M)
+            Upd(x->ls, L, R, K);
+        if (R > M)
+            Upd(x->rs, L, R, K);
+        PsUp(x);
     }
     ll Qry(Node *x, ll L, ll R)
     {
         if (InRng(x, L, R))
-            return x->v;
-        else if (OutRng(x, L, R))
-            return 0;
-        else
         {
-            PsDw(x);
-            return Qry(x->ls, L, R) + Qry(x->rs, L, R);
+            if (x->l == L)
+                templc = x->lcolor;
+            if (x->r == R)
+                temprc = x->rcolor;
+            return x->v;
         }
+        PsDw(x);
+        int M = (x->l + x->r) >> 1;
+        if (R <= M)
+            return Qry(x->ls, L, R);
+        if (L > M)
+            return Qry(x->rs, L, R);
+        int ans = Qry(x->ls, L, R) + Qry(x->rs, L, R);
+        if (x->ls->rcolor == x->rs->lcolor)
+            ans--;
+        return ans;
     }
 };
 
@@ -218,6 +239,7 @@ namespace CutTree
     ll QryLne(ll _x, ll _y)
     {
         ll ans = 0;
+        ll ex = 0, ey = 0;
         Node *x = toNode[_x], *y = toNode[_y];
         while (x->lnkTp->realId != y->lnkTp->realId)
         {
@@ -226,44 +248,38 @@ namespace CutTree
             {
                 ans += SgnTr.Qry(SgnTr.rot, x->lnkTp->cutId, x->cutId);
                 x = x->lnkTp->fa;
+                if (temprc == ex)
+                    ans--;
+                ex = templc;
             }
             else
             {
                 ans += SgnTr.Qry(SgnTr.rot, y->lnkTp->cutId, y->cutId);
                 y = y->lnkTp->fa;
+                if (temprc == ey)
+                    ans--;
+                ey = templc;
             }
         }
         if (x->dep <= y->dep)
         {
             ans += SgnTr.Qry(SgnTr.rot, x->cutId, y->cutId);
+            if (templc == ex)
+                ans--;
+            if (temprc == ey)
+                ans--;
         }
         else
         {
             ans += SgnTr.Qry(SgnTr.rot, y->cutId, x->cutId);
+            if (templc == ey)
+                ans--;
+            if (temprc == ex)
+                ans--;
         }
         return ans;
     }
-    /**
-     * 获取以某一个结点为根的子树的点权和。
-     * @param _x 指定的子树的根。
-     * @return 点权和。
-    */
-    ll QrySon(ll _x)
-    {
-        Node *x = toNode[_x];
-        return SgnTr.Qry(SgnTr.rot, x->cutId, x->cutId + x->siz - 1 /*子树的链的右端点*/);
-    }
-    /**
-     * 修改以某一个结点为根的子树的点权。
-     * @param _x 指定的子树的根。
-     * @param k 子树上的每一个点加上的值。
-    */
-    void UpdSon(ll _x, ll k)
-    {
-        Node *x = toNode[_x];
-        SgnTr.Upd(SgnTr.rot, x->cutId, x->cutId + x->siz - 1, k);
-        //SgnTr.Debug(SgnTr.rot);
-    }
+
 }; // namespace CutTree
 int main()
 {
@@ -279,6 +295,23 @@ int main()
     CutTree::Build();
     while (m--)
     {
+        int a, b, c;
+        char ch = getchar();
+        while (ch != 'C' && ch != 'Q')
+            ch = getchar();
+        if (ch == 'C')
+        {
+            a = read();
+            b = read();
+            c = read();
+            CutTree::UpdLne(a, b, c);
+        }
+        if (ch == 'Q')
+        {
+            a = read();
+            b = read();
+            printf("%lld\n", CutTree::QryLne(a, b));
+        }
     }
 #ifndef ONLINE_JUDGE
     system("pause");
