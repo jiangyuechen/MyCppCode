@@ -313,6 +313,7 @@ int main()
             printf("%lld\n", CutTree::QryLne(a, b));
         }
     }
+
 #ifndef ONLINE_JUDGE
     system("pause");
 #endif

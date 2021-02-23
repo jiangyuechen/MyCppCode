@@ -1,7 +1,6 @@
 {
     "files.defaultLanguage": "cpp",
     "editor.defaultFormatter": "ms-vscode.cpptools",
-    "editor.formatOnType": true,
     "editor.formatOnSave": true,
     "editor.snippetSuggestions": "inline",
     "editor.autoClosingBrackets": "beforeWhitespace",
@@ -19,7 +18,6 @@
     "C_Cpp.intelliSenseEngine": "Default",
     "C_Cpp.errorSquiggles": "Enabled",
     "C_Cpp.autocomplete": "Default",
-    "errorLens.delay": 1,
     "vscode-mysql.enableTelemetry": true,
     "vscode-mysql.maxTableCount": 500,
     "vsintellicode.python.completionsEnabled": false,
@@ -135,13 +133,6 @@
     },
     "path-intellisense.absolutePathToWorkspace": true,
     "git.ignoreLimitWarning": true,
-    "errorLens.addAnnotationTextPrefixes": true,
-    "errorLens.annotationPrefix": [
-        "🔺",
-        "🔶",
-        "🔵",
-        "💠"
-    ],
     "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,

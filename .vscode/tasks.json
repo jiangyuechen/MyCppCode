@@ -10,9 +10,9 @@
                 "\"${file}\"",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}.exe\"",
-                "-O2",
-                "-std=c++11",
-                "-Wl,--stack=512000000",
+                "-std=c++11"
+                // "-O2",
+                // "-std=c++11",
                 // "-fexec-charset=GBK",
             ],
             "options": {

@@ -24,7 +24,7 @@ struct cp
     cp operator-(cp o) { return cp(this->real - o.real, this->imag - o.imag); }
     cp operator*(cp o) { return cp(this->real * o.real - this->imag * o.imag, this->real * o.imag + this->imag * o.real); }
 };
-const int MAXN = 10000001;
+const int MAXN = 2000010;
 const double Pi = acos(-1.00);
 cp A[MAXN], B[MAXN];
 int rev[MAXN], N, M, lim = 1, limpow;
@@ -58,10 +58,11 @@ void FFT(cp *a, int inv)
         }
     }
 }
+string _a, _b;
 int main()
 {
-    N = read();
-    M = read();
+    scanf("%s", _a);
+    scanf("%s", _b);
     for (int i = 0; i <= N; i++)
         A[i].real = read();
     for (int i = 0; i <= M; i++)
