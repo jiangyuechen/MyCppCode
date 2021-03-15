@@ -1,0 +1,26 @@
+body {
+    background-color:#00ffff;
+    background-image: url("");
+    text-decoration: double;
+
+}
+h1 {
+    color:orange;
+    font-family: sans-serif;
+}
+
+#wrapper {
+    color: rgba(red, green, blue, 5.00);
+    text-align: center;
+    stop-color: aliceblue;
+}
+
+.centre {
+    range: auto;
+    flood-color: greenyellow;
+    additive-symbols: -moz-element("std");
+}
+
+script {
+    src: inherit;
+}
