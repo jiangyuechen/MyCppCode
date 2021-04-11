@@ -17,10 +17,18 @@ h1 {
 
 .centre {
     range: auto;
+    color: rgba(red, green, blue, 10.00);
     flood-color: greenyellow;
     additive-symbols: -moz-element("std");
 }
 
 script {
     src: inherit;
+}
+
+output {
+    -webkit-animation: alternate;
+    -moz-animation: alternate;
+    -ms-behavior: inherit;
+    -o-animation: alternate;
 }
