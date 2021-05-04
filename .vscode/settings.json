@@ -24,6 +24,8 @@
     "vsintellicode.typescript.completionsEnabled": false,
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
+    "markdown.extension.tableFormatter.enabled": false,
+    "editor.maxTokenizationLineLength": 2147483647,
     "files.associations": {
         "cstring": "cpp",
         "algorithm": "cpp",

@@ -8,3 +8,14 @@
 
 ### 管理
 每天都要暂存更改，每 3 天集中提交一次。
+
+|Property|Value|
+|--|--| 
+|中文名 <font color=grey>(*also in games* </font>代号<font color=grey>)</font> |<font color=grey> *void* </font>|
+|英文名|<font color=grey> *void* </font>|
+|性别|<font color=grey> *void* </font>|
+
+|Property|Value
+|---|---|
+|中文名| <font color=grey>《</font>战双帕弥什<font color=grey>》</font>
+|英文名| *Punishing : Grey Raven*

@@ -24,6 +24,7 @@ void add_edge(int a, int b) {
     head[a] = top;
 }
 int n, p;
+int dp[MAXN];
 int dfs(int x) {
     for (int i = head[x]; i; i = e[i].nxt) {
         int y = e[i].to;
