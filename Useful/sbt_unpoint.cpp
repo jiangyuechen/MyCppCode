@@ -81,8 +81,11 @@ namespace SBT {
         if (val == key[x] || (val < key[x] && ls[x] == 0) ||
             (val > key[x] && rs[x] == 0)) {
             int del = key[x];
-            if (ls[x] == 0 || rs[x] == 0)
-                x = ls[x] + rs[x];
+            if (ls[x] == 0 || rs[x] == 0) x = ls[x] + rs[x];
+            // This equals to:
+            // @ if (ls[x] == 0) x = rs;
+            // @ else if (rs[x] == 0) x = ls;
+            // which mains that if a node have only one son, get that son.
             else
                 key[x] = __Delete(ls[x], key[x] + 1);
             return del;
@@ -122,6 +125,7 @@ namespace SBT {
             return ret;
         }
     }
+
     int __Hi_Bound(int &x, int val) _READONLY {
         if (x == 0) return val;
         if (val >= key[x])
@@ -135,7 +139,6 @@ namespace SBT {
     int Lo_Bound(int val) _READONLY { return __Lo_Bound(rot, val); }
     int Hi_Bound(int val) _READONLY { return __Hi_Bound(rot, val); }
 }  // namespace SBT
-
 int main() {
     n = read();
     while (n--) {

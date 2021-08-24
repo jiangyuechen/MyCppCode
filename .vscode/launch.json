@@ -30,10 +30,10 @@
             "console": "externalTerminal"
         },
         {
-            "type": "node",
+            "type": "node2",
             "request": "launch",
             "name": "JS Launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.js",
-        },
+        }
     ]
 }
