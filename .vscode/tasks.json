@@ -16,7 +16,7 @@
                 // "-fexec-charset=GBK",
             ],
             "options": {
-                "cwd": "C:/Program Files (x86)/gcc/bin"
+                "cwd": "E:/gcc/bin"
             },
             "problemMatcher": [
                 "$gcc"

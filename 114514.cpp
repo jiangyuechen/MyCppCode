@@ -11,4 +11,4 @@ void KojiTadokoro() {  // 田所浩二
     cout << "Heng, Heng, Heng, AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
 }
 
-int main() {}
+int main() { KojiTadokoro(); }

@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:/Program Files (x86)/gcc/bin/gcc.exe"
+                "E:/gcc/lib/gcc/x86_64-w64-mingw32/5.1.0/include/c++"
             ],
             "defines": [
                 "_DEBUG",
@@ -13,7 +13,7 @@
             "intelliSenseMode": "gcc-x86",
             "cppStandard": "c++17",
             "cStandard": "c11",
-            "compilerPath": "C:/Program Files (x86)/gcc/bin/gcc.exe"
+            "compilerPath": "E:/gcc/bin/gcc.exe"
         }
     ],
     "version": 4
