@@ -1,7 +1,5 @@
-function Vector (x, y, z) {
-    Vector.prototype.x = x;
-    Vector.prototype.y = y;
-    Vector.prototype.z = z;
-    return this;
+function X2(a, b, c, d) {
+    let n = a + b + c + d;
+    return n * (a * d - b * c) * (a * d - b * c) / ((a + b) * (c + d) * (a + c) * (b + d));
 }
-console.log(new Vector(1,2,3));
+console.log ( X2 (45,165,30,60) );
