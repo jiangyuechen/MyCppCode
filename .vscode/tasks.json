@@ -16,7 +16,7 @@
                 // "-fexec-charset=GBK",
             ],
             "options": {
-                "cwd": "E:/gcc/bin"
+                "cwd": "D:/TDM-GCC-64/bin"
             },
             "problemMatcher": [
                 "$gcc"
@@ -27,10 +27,11 @@
             }
         },
         {
-            "command":"C:/Windows/Microsoft.NET/Framework/v4.0.30319/csc.exe",
+            "command":"dotnet",
             "args": [
-                "/out:${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${fileDirname}\\${fileBasenameNoExtension}.cs",
+                "run",
+                "--project",
+                "${fileDirname}"
             ],
             "label":"C# Task"
         },

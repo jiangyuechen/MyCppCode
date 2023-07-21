@@ -11,7 +11,7 @@
     "editor.tabCompletion": "off",
     "editor.comments.insertSpace": true,
     "editor.cursorStyle": "line",
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.minimap.renderCharacters": false,
     "editor.links": true,
     "C_Cpp.clang_format_sortIncludes": true,

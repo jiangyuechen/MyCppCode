@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "C++ Launch",
-            "type": "cppdbg",
+            "type": "clr",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
             "args": [],

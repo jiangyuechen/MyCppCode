@@ -1,0 +1,16 @@
+D:\Document\Codes\Projects\HeredityCalculator\bin\Debug\net5.0\HeredityCalculator.exe
+D:\Document\Codes\Projects\HeredityCalculator\bin\Debug\net5.0\HeredityCalculator.deps.json
+D:\Document\Codes\Projects\HeredityCalculator\bin\Debug\net5.0\HeredityCalculator.runtimeconfig.json
+D:\Document\Codes\Projects\HeredityCalculator\bin\Debug\net5.0\HeredityCalculator.runtimeconfig.dev.json
+D:\Document\Codes\Projects\HeredityCalculator\bin\Debug\net5.0\HeredityCalculator.dll
+D:\Document\Codes\Projects\HeredityCalculator\bin\Debug\net5.0\ref\HeredityCalculator.dll
+D:\Document\Codes\Projects\HeredityCalculator\bin\Debug\net5.0\HeredityCalculator.pdb
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\HeredityCalculator.csproj.AssemblyReference.cache
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\HeredityCalculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\HeredityCalculator.AssemblyInfoInputs.cache
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\HeredityCalculator.AssemblyInfo.cs
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\HeredityCalculator.csproj.CoreCompileInputs.cache
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\HeredityCalculator.dll
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\ref\HeredityCalculator.dll
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\HeredityCalculator.pdb
+D:\Document\Codes\Projects\HeredityCalculator\obj\Debug\net5.0\HeredityCalculator.genruntimeconfig.cache
