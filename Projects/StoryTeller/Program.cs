@@ -83,6 +83,7 @@ namespace StoryTeller
         private string EvName;
         private static int EvNum = 0;
         private int EvId;
+
         public int GetEvId
         {
             get => EvId;
@@ -156,7 +157,7 @@ namespace StoryTeller
             StoryEvent storyEvent3 = new StoryEvent("我活着", "起起落落落落落落落落落落落落的人生");
             story.AddEventBefore(storyEvent3, 1);
             StoryLine stl = story.GetStEvents;
-            foreach (StoryEvent line in stl) 
+            foreach (StoryEvent line in stl)
             {
                 Console.WriteLine("事件 {0} || 标题 : {1} || 内容 : {2}", line.GetEvId, line.GetEvName, line.GetEvDescription);
             }
