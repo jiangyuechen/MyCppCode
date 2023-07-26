@@ -28,7 +28,7 @@ namespace StoryTeller
         {
             StId = StNum;
             StNum++;
-            StName = "[unnamed story #" + StId.ToString() + "]"; 
+            StName = "[unnamed story #" + StId.ToString() + "]";
             StEvents = new StoryLine();
         }
         public Story(string _StName)
@@ -59,10 +59,10 @@ namespace StoryTeller
             }
             return null;
         }
-        public int AddEventBefore(StoryEvent _stev, int _stid) 
+        public int AddEventBefore(StoryEvent _stev, int _stid)
         {
             StoryLineNode? _tar_node = Find(_stid);
-            if ( _tar_node != null )
+            if (_tar_node != null)
             {
                 StEvents.AddBefore(_tar_node, _stev);
                 return 0;
@@ -96,7 +96,7 @@ namespace StoryTeller
         {
             get
             {
-                if ( EvDescription == null ) { return "null"; }
+                if (EvDescription == null) { return "null"; }
                 else return EvDescription;
             }
         }
@@ -109,7 +109,7 @@ namespace StoryTeller
         {
             EvId = NewEvent();
             EvDescription = _evDescription;
-            if (_evName != null )
+            if (_evName != null)
             {
                 EvName = _evName;
             }
@@ -123,7 +123,7 @@ namespace StoryTeller
     {
         private static MySqlCommand DataMaker(string StName, int StId, MySqlConnection msc)
         {
-            return new MySqlCommand("use StoryTeller; insert into Story(StName, StId) values('" + StName + "'," +  StId + ");", msc);
+            return new MySqlCommand("use StoryTeller; insert into Story(StName, StId) values('" + StName + "'," + StId + ");", msc);
         }
         private static MySqlCommand DataDeleter(string StName, int StId, MySqlConnection msc)
         {

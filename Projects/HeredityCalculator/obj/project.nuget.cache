@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tKy8HrVSqOEFPOrOgwkPxC/OUQ47SrEK+vS52FLRteF8vRHrpxLhXRPsJMCNkGFMvNxvduuXfB1r4wzYk20tzw==",
+  "dgSpecHash": "9KCL3UfXCNQstvkDJ+c8Wz5lae6olw140deqv9xJGdAVA39Wz1Alwk2hC02VghK1Re3HT/Ga3bQnSTN4eA92+A==",
   "success": true,
-  "projectFilePath": "D:\\Document\\Codes\\Projects\\HeredityCalculator\\HeredityCalculator.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\J_Ignite\\Documents\\Codes\\Projects\\HeredityCalculator\\HeredityCalculator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\J_Ignite\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
   "logs": []
 }
