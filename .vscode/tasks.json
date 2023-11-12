@@ -10,10 +10,8 @@
                 "\"${file}\"",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}.exe\"",
-                "-std=c++11"
-                // "-O2",
-                // "-std=c++11",
-                // "-fexec-charset=GBK",
+                "-std=c++11",
+                "-fexec-charset=GBK"
             ],
             "options": {
                 "cwd": "D:/TDM-GCC-64/bin"
@@ -27,13 +25,23 @@
             }
         },
         {
-            "command":"dotnet",
+            "command": "dotnet",
             "args": [
                 "run",
                 "--project",
                 "${fileDirname}"
             ],
-            "label":"C# Task"
+            "label": "C# Task"
         },
+        {
+            "command": "matlab",
+            "args": [
+                "-nosplash",
+                "-nodesktop",
+                "-r",
+                "\"${fileDirname}\\${fileBasename}\"",
+            ],
+            "label": "MATLAB Task"
+        }
     ]
 }

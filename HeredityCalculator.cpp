@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+constexpr int s = 1 * 2 * 3 * 4;
 
 class Bio;
 class Chromosome;
 class ChromosomeSet;    // 染色体组
 class SexualChromosome; // 性染色体
 class Autosome;         // 常染色体
-
 class Bio
 {
 private:

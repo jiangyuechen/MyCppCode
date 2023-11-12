@@ -2,6 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "MATLAB Launch",
+            "type": "OctaveDebugger",
+            "request": "launch",
+            "program": "${file}",
+            "octave": "octave-cli",
+            "preLaunchTask": "MATLAB Task",
+            "sourceFolder": "${workspaceFolder}"
+        },
+        {
             "name": "C++ Launch",
             "type": "clr",
             "request": "launch",

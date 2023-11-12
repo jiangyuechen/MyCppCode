@@ -135,4 +135,17 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "other": "on",
+            "comments": "on",
+            "strings": "on"
+        }
+    },
+    "python.analysis.typeCheckingMode": "off",
+    "python.formatting.provider": "none",
+    "dotnet.defaultSolution": "disable",
 }
