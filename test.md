@@ -1,7 +1,12 @@
 $$
-v = \mathrm{Object}(V), i = \mathrm{Object}(I)\\
-\mathbb{L}_s = \mathrm{Ligue}(v), \mathbb{L}_i = \mathrm{Ligue}(i)\\
-\mathbb{X} = \mathbb{L}_s \cap \mathbb{L}_i\\
+\mathrm {Ver} \ P = \{Q|[<P,Q>]=1\}
+\\
+\mathrm {Ver}_R \ P = \{Q|<P,Q> = R\}
+$$
 
-x \in \mathbb{X}, x \not = \mathrm{Col} \  Cytus_2
+$$
+\begin{align*}
+!((x \land y) \lor (z \land w)) & = \neg (x \land y) \land \neg (z \land w) \
+& = (\neg x \lor \neg y) \land (\neg z \lor \neg w)
+\end{align*}
 $$

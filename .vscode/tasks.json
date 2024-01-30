@@ -10,8 +10,8 @@
                 "\"${file}\"",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}.exe\"",
-                "-std=c++11",
-                "-fexec-charset=GBK"
+                "-std=c++17"
+                // "-fexec-charset=GBK"
             ],
             "options": {
                 "cwd": "D:/TDM-GCC-64/bin"

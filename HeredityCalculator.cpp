@@ -1,44 +1,19 @@
 #include <iostream>
-#include <vector>
+#include <list>
+
 using namespace std;
-constexpr int s = 1 * 2 * 3 * 4;
-
-class Bio;
-class Chromosome;
-class ChromosomeSet;    // 染色体组
-class SexualChromosome; // 性染色体
-class Autosome;         // 常染色体
-class Bio
+int main()
 {
-private:
-   vector<Chromosome> chrset;
-
-public:
-};
-
-class AsexualBio; // 无性别分化的生物
-class SexualBio;  // 有性别分化的生物
-
-class Chromosome
-{
-};
-class SexualChromosome : public Chromosome
-{
-};
-class Autosome : public Chromosome
-{
-};
-
-class Gene
-{
-protected:
-   string name;
-
-public:
-};
-
-class Trait
-{
-};
-
-int main() {}
+   __int128_t x = 13822139291821039839812903218932;
+   list<int> l = list<int>{1, 1, 0, 0, 1, 0, 1, 1};
+   for (list<int>::iterator i = l.begin(); i != l.end(); i++)
+   {
+      if ((*i) == 1)
+         i = l.erase(i);
+   }
+   for (list<int>::iterator i = l.begin(); i != l.end(); i++)
+   {
+      cout << *i << endl;
+   }
+   system("pause");
+}

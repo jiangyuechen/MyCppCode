@@ -1,0 +1,56 @@
+symbol Vanessa = 
+object (default "Vanessa", "V", "5")
+{
+    gender = Gender ("Female"),
+    birth = Birthday (default)
+}
+[Immortal]
+
+subsymbol VanessaB = 
+object (default "VanessaB") 
+relation "personality" -> Vanessa
+super Vanessa
+{
+    gender, birth = super,
+}
+[Immortal]
+
+// Vanessa* = Collection { default Vanessa, VanessaB }
+
+symbol Ivy =
+object (default "Ivy", "IV", "4")
+relation "Friend" <-> Vanessa*
+{
+    gender = Gender ("Female"),
+}
+[=super] // [Immortal]
+
+reference "???????" -> VanessaB
+
+attrib Gender
+: Discrete { default "Male", "Female" }
+
+attrib Birthday
+: Date
+
+symbol Immortal = tag ("Those who never die")
+
+symbol Zombie = Attributes ("Zombie")
+{
+    breathe, heartbeat, body_temperature : boolean(default false),
+}
+
+symbol f = script (x: Any, y: Any)
+{
+
+}
+
+symbol t = trigger (x: ref Any, y: ref Any, z: ref Any) once
+{
+    condition = {
+        return defined(x) and x.time == 0
+    },
+    action = {
+        y.name = "";
+    }
+}

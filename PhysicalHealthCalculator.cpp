@@ -1,25 +1,23 @@
 #include <iostream>
-using namespace std;
+
+class Pain
+{
+public:
+    int Intensity;
+    std::string Description;
+    Pain() : Intensity(0), Description() {}
+    Pain(int _i, std::string _d) : Intensity(_i), Description(_d) {}
+};
+void Suffer(Pain &p)
+{
+    std::cout << "I'm suffering " << p.Description << "!" << std::endl;
+}
 
 int main()
 {
-    int bmi = 0, fhl = 0, zwtqq = 0, ldty = 0, p50 = 0, p1000 = 0, ytxs = 0;
-    cout << "BMI:";
-    cin >> bmi;
-    cout << "肺活量:";
-    cin >> fhl;
-    cout << "坐位体前屈:";
-    cin >> zwtqq;
-    cout << "立定跳远:";
-    cin >> ldty;
-    cout << "50米跑:";
-    cin >> p50;
-    cout << "1000米跑:";
-    cin >> p1000;
-    cout << "引体向上:";
-    cin >> ytxs;
-    double score = bmi * 0.15 + fhl * 0.15 + zwtqq * 0.1 + ldty * 0.1 + p50 * 0.2 + p1000 * 0.2 + ytxs * 0.1;
-    cout << "你最后的成绩是:" << score << endl;
-    system("pause");
+    int (*fp)(int, int) = [&](int a, int b)
+    { return a + b; };
+    Pain p = Pain(1, "Mental Pain");
+    Suffer(p);
     return 0;
 }

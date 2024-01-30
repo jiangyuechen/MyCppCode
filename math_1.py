@@ -1,9 +1,27 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
-A = np.array([[0, 1, 0, 0], [1, 0, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
-B = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])
+a = 4
+# A = [[1, 1, 1], [2, 3, a], [1, 2, 3]]
+# B = [[1, 1, 1], [3, a, 1], [2, 3, 1]]
 
-print(A.dot(B))
-print(B.dot(A))
-np.linalg.matrix_power(A, 5)
+# r1 = np.linalg.matrix_rank(A)
+# r2 = np.linalg.matrix_rank(B)
+# print(r1)
+# print(r2)
+
+C = [
+    [0, 0, 1, 0],
+    [0, 0, 0, 1],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+]
+
+C2 = [
+    [0, 1, 0, 0],
+    [0, 0, 1, 0],
+    [0, 0, 0, 1],
+    [0, 0, 0, 0],
+]
+
+R = np.dot(C2, C2)
+print(R)

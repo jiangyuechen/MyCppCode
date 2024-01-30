@@ -1,7 +1,0 @@
-﻿  classes.cpp
-  StoryViewer.cpp
-  正在生成代码...
-StoryViewer.obj : error LNK2005: "unsigned int StoryViewer::_identifier_pool" (?_identifier_pool@StoryViewer@@3IA) 已经在 classes.obj 中定义
-StoryViewer.obj : error LNK2005: "class std::vector<class StoryViewer::Object *,class std::allocator<class StoryViewer::Object *> > StoryViewer::_object_pool" (?_object_pool@StoryViewer@@3V?$vector@PEAVObject@StoryViewer@@V?$allocator@PEAVObject@StoryViewer@@@std@@@std@@A) 已经在 classes.obj 中定义
-classes.obj : error LNK2019: 无法解析的外部符号 "private: void __cdecl StoryViewer::Object::_Reset(void)" (?_Reset@Object@StoryViewer@@AEAAXXZ)，函数 "public: __cdecl StoryViewer::Object::Object(enum StoryViewer::TYPE,bool)" (??0Object@StoryViewer@@QEAA@W4TYPE@1@_N@Z) 中引用了该符号
-D:\J_Ignite\Documents\Codes\Projects\StoryViewer\x64\Debug\StoryViewer.exe : fatal error LNK1120: 1 个无法解析的外部命令
